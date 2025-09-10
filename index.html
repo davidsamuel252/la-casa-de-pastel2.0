@@ -3,236 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Casa de Pastel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>La casa de Pastel</title>
     <style>
-        /* Estilos gerais */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        h1, h2 {
-            color: #f68b1f; /* Laranja vibrante */
-            text-align: center;
-        }
-
-        form {
-            background: white;
-            width: 80%;
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-            color: #333;
-        }
-
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        input[type="text"], select {
-            background-color: #f9f9f9;
-        }
-
-        button {
-            background-color: #f68b1f;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #f5a623; /* Laranja mais claro */
-        }
-
-        fieldset {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: #fafafa;
-        }
-
-        legend {
-            font-weight: bold;
-            color: #f68b1f;
-        }
-
-        .form-section {
-            margin-bottom: 25px;
-        }
-
-        .cta-button-container {
-            text-align: center;
-        }
-
-        .cta-button-container button {
-            width: auto;
-            margin-right: 10px;
-        }
-
-        hr {
-            margin: 30px 0;
-            border: 1px solid #ddd;
-        }
-
-        #relatorio {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .informacoes-empresa {
-            background-color: #fafafa;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .informacoes-empresa input {
-            background-color: #f0f0f0;
-            cursor: not-allowed;
-        }
-
-        /* Layout das opções lado a lado */
-        .lado-a-lado {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .lado-a-lado .form-section {
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            form {
-                width: 90%;
-            }
-            /* Para telas pequenas, os campos continuam bem organizados em coluna */
-            .lado-a-lado {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #relatorio, #relatorio * {
+        visibility: visible;
+      }
+      #relatorio {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-
-    <h1>La Casa de Pastel</h1>
-
     <form id="FormPastel" action="#" method="post">
-        <div class="form-section">
-            <label for="nome">Nome do Cliente: </label>
-            <input type="text" name="Nome" id="nome" placeholder="Seu Nome">
-        </div>
+        <label for="nome">Nome do Cliente: </label>
+        <input type="text" name="Nome" id="nome" placeholder="Seu Nome">
+        <br>
+        <br>
 
-        <div class="form-section">
-            <label for="cpf">CPF: </label>
-            <input type="text" name="cpf" id="cpf" placeholder="Seu CPF">
-        </div>
+        <label for="cpf">CPF: </label>
+        <input type="text" name="cpf" id="cpf" placeholder="Seu CPF">
+        <br>
+        <br>
 
-        <div class="form-section">
-            <label for="endereco">Endereço: </label>
-            <input type="text" name="endereço" id="endereco" placeholder="Seu Endereço">
-        </div>
+        <label for="endereco">Endereço: </label>
+        <input type="text" name="endereço" id="endereco" placeholder="Seu Endereço">
+        <br>
+        <br>
 
-        <!-- Lanches, Tamanho e outras opções lado a lado -->
-        <div class="lado-a-lado">
-            <div class="form-section">
-                <label for="cardapio">Pastel: </label>
-                <select id="cardapio" name="cardapio">
-                    <option value="Carne">Pastel de Carne - R$ 15,00</option>
-                    <option value="Frango">Pastel de Frango - R$ 15,00</option>
-                    <option value="Chocolate">Pastel de Chocolate - R$ 20,00</option>
-                    <option value="Queijo">Pastel de Queijo - R$ 15,00</option>
-                    <option value="CarneQueijo">Pastel de Carne com Queijo - R$ 15,00</option>
-                    <option value="Cheddar">Pastel de Carne com Cheddar - R$ 20,00</option>
-                </select>
-            </div>
+        <label for="cardapio">Pastel: </label>
+            <select id="cardapio" name="cardapio"></select>
+        <br>
+        <br>
 
-            <div class="form-section">
-                <label for="tamanho">Tamanho: </label>
-                <select id="tamanho" name="tamanho">
-                    <option value="Pequeno">Pequeno - R$ 5,00</option>
-                    <option value="Médio">Médio - R$ 7,00</option>
-                    <option value="Grande">Grande - R$ 10,00</option>
-                </select>
-            </div>
+        <label for="cardapioww">Pastel: </label>
+            <select id="cardapioww" name="cardapioww"></select>
+        <br>
+        <br>
 
-            <div class="form-section">
-                <label for="cardapioww">Outro Pastel: </label>
-                <select id="cardapioww" name="cardapioww">
-                    <option value="Nada">Nada - R$ 0,00</option>
-                    <option value="Carne">Pastel de Carne - R$ 15,00</option>
-                    <option value="Frango">Pastel de Frango - R$ 15,00</option>
-                    <option value="Chocolate">Pastel de Chocolate - R$ 20,00</option>
-                    <option value="Queijo">Pastel de Queijo - R$ 15,00</option>
-                    <option value="CarneQueijo">Pastel de Carne com Queijo - R$ 15,00</option>
-                    <option value="Cheddar">Pastel de Carne com Cheddar - R$ 20,00</option>
-                </select>
-            </div>
+        <label for="acompanhantee">Acompanhante: </label>
+            <select id="acompanhantee" name="acompanhantee"></select>
+        <br>
+        <br>
 
-            <div class="form-section">
-                <label for="acompanhantee">Acompanhante: </label>
-                <select id="acompanhantee" name="acompanhantee">
-                    <option value="Caldo de Cana">Caldo de Cana - R$ 5,00</option>
-                    <option value="Suco Natural">Suco Natural - R$ 3,00</option>
-                    <option value="Refrigerante">Refrigerante - R$ 7,00</option>
-                </select>
-            </div>
+        <label for="tamanho">Tamanho: </label>
+            <select id="tamanho" name="tamanho"></select>
+        <br>
+        <br>
 
-            <div class="form-section">
-                <label for="entrega">Entrega ou Busca: </label>
-                <select name="entrega" id="entrega">
-                    <option value="Entrega">Entrega - R$ 5,00</option>
-                    <option value="Buscar">Busca - R$ 0,00</option>
-                </select>
-            </div>
-        </div>
+        <label for="entrega">Entrega ou Busca: </label>
+             <select name="entrega" id="entrega"></select>
+        <br>
+        <br>
 
         <fieldset>
-            <legend>Forma de Pagamento:</legend>
-            <label><input type="radio" name="pagamento" value="Pix" id="pagamentow"> Pix</label>
-            <label><input type="radio" name="pagamento" value="Debito" id="pagamentow"> Débito</label>
-            <label><input type="radio" name="pagamento" value="Credito" id="pagamentow"> Crédito</label>
-            <label><input type="radio" name="pagamento" value="Dinheiro" id="pagamentow"> Dinheiro</label>
+            <legend>Forma de Pagamento: </legend>
+
+            <label>
+                <input type="radio" name="pagamento" value="Pix" id="pagamentow">
+                Pix
+            </label>
+
+            <label>
+                <input type="radio" name="pagamento" value="Debito" id="pagamentow">
+                Débito
+            </label>
+
+            <label>
+                <input type="radio" name="pagamento" value="Credito" id="pagamentow">
+                Crédito
+            </label>
+
+            <label>
+                <input type="radio" name="pagamento" value="Dinheiro" id="pagamentow">
+                Dinheiro
+            </label>
         </fieldset>
+        
+        <br>
+        <hr>
+        <h2>Informações Importantes</h2>
 
-        <div class="informacoes-empresa">
-            <label for="enderecoo">Endereço do Estabelecimento: </label>
-            <input type="text" id="enderecoo" name="endereçoo" value="Rua Lisboa, 435 - Jardim Panorama" readonly>
-            <br>
-            <label for="numeroo">Número de Telefone do Estabelecimento: </label>
-            <input type="text" id="numeroo" name="numeroo" value="(45)9914501514" readonly>
-        </div>
+        <label for="enderecoo">Endereço do Estabelecimento: </label>
+        <input type="text" id="enderecoo" name="endereçoo" value="Rua Lisboa, 435 - Jardim Panorama" readonly>
+        
+        <br>
+        <br>
 
-        <div class="cta-button-container">
-            <button onclick="gerarRelatorio()">Gerar relatório do Pedido</button>
-            <button onclick="window.print()">Gerar PDF do relatório</button>
-        </div>
+        <label for="numeroo">Número de Telefone do Estabelecimento: </label>
+        <input type="text" id="numeroo" name="numeroo" value="(45)9914501514" readonly>
     </form>
 
-    <div id="relatorio"></div>
 
+         <hr> 
+         <div id="relatorio"></div>
+         <br>
+         <button onclick="gerarRelatorio()">Gerar relatório do Pedido</button>
+    
+
+    <br>
+    <button onclick="window.print()">Gerar PDF do relatório</button>
     <script src="script.js"></script>
-
 </body>
 </html>
